@@ -11,6 +11,6 @@
         android:id="@+id/helloText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello AutoCalendar!"
+        android:text="Mar 15 2025 10AM"
         android:textSize="20sp"/>
 </LinearLayout>

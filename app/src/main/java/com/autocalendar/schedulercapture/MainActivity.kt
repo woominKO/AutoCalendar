@@ -40,10 +40,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun handleScreenshot(uri: Uri) {
-        OcrProcessor.processImage(this, uri) { text ->
-            val parsed = EventParser.parse(text)
-            NotificationHelper.showEventNotification(this, parsed)
+        val imageActivity = ImageActivity()
+        val ocr = OcrProcessor()
+        val inputImage = imageActivity.imageFromPath(this, uri)
+        if (inputImage != null) {
+            // OCR 실행
+            ocr.recognizeText(inputImage) { text ->
+                println("📖 OCR 결과: $text")
+                val parsed = EventParser.parse(text)
+                NotificationHelper.showEventNotification(this, parsed)
+            }
         }
+
     }
 
     private fun checkAndRequestPermissions() {

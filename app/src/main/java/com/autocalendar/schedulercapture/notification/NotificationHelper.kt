@@ -40,6 +40,7 @@ object NotificationHelper {
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle(event.title)
             .setContentText("시작: ${java.util.Date(event.startMillis)}")
+
             .addAction(
                 R.drawable.ic_launcher_foreground,
                 "캘린더 저장",
